@@ -11,21 +11,7 @@ import Router from 'vue-router'
 // import message from '@/components/message'
 // import favorites from '@/components/favorites'
 
-
- 
-
-// const list = r => require.ensure([], () => r(require('../components/list/list')), 'list');
-// // 路由也是正常的写法  这种是官方推荐的写的 按模块划分懒加载 
-// const router = new Router({
-//     routes: [
-//         {
-//            path: '/list/blog',
-//            component: list,
-//            name: 'blog'
-//         }
-//     ]
-// })
-
+//路由懶加载
 const Index = r => require.ensure([],() => r(require('@/components/Index')), 'Index');
 const newlists = r => require.ensure([],() => r(require('@/components/newlists')), 'newlists');
 const newsMore = r => require.ensure([],() => r(require('@/components/newsMore')), 'newsMore');
@@ -37,10 +23,9 @@ const disclaimer = r => require.ensure([],() => r(require('@/components/disclaim
 const message = r => require.ensure([],() => r(require('@/components/message')), 'message');
 const favorites = r => require.ensure([],() => r(require('@/components/favorites')), 'favorites');
 
-
-
-
 Vue.use(Router)
+
+
 
 export default new Router({
   routes: [
