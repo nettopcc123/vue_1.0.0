@@ -1,14 +1,15 @@
 <template>
 <div id="lotts">
        <h2 class="itit">开奖信息 <span></span></h2>
-        <ul class="nlist">
+        <ul class="llist">
             <li v-for="(value, key) in lottslist">
-                <router-link :to="{ name: 'lottsmore', params: { lottsId: key }}">
-                <span class="nimg"><img :src="require('./../components/img/'+ value.img)"></span>
-                <span class="newsCtn">
-                    <h2>{{ value.info }}</h2>
-                </span>
-                </router-link>
+                <div class="limg">
+                    <img :src="require('./../components/img/'+ value.img)">
+                </div>
+                <div class="lcon">
+                    <p class="loct"><span class="cname">双色球</span><span class="cperiod">第18107期</span><span class="ctime">开09-13周四</span><span class="clear"></span></p>
+                    <p class="locb"><span>01</span> <span>02</span> <span>05</span><span class="clear"></span></p>
+                </div>
             </li>
         </ul>
  </div> 
@@ -42,3 +43,62 @@ export default {
   }
 }
 </script>
+<style>
+.llist{
+    display: block;
+    overflow: hidden;
+    margin-top:0.05rem;
+}
+.llist li{
+    display: block;
+    margin-bottom:0.08rem;
+    clear: both;
+    overflow: hidden;
+    padding:0px 0.1rem;
+}
+.llist li .loct{
+    display: block;
+    clear:both;
+    overflow: hidden;
+}
+.llist li .locb{
+    display: block;
+    clear:both;
+    margin-top:0.08rem;
+    height: 0.08rem;
+}
+.llist li .locb span{
+    width: 0.2rem;
+    height: 0.2rem;
+    line-height: 0.2rem;
+    background-color: #efefef;
+    border: 0.01rem #a72525 solid;
+    border-radius: 0.1rem;
+    float:left;
+    margin-right:0.05rem;
+    text-align: center
+}
+.limg{
+  width: 25%;
+  float: left
+}
+.lcon{
+  width: 70%;
+  float: right
+}
+.cname{
+    float:left;
+    width: 20%;
+    color:#f00;
+}
+.cperiod{
+    float:left;
+    width: 30%;
+    color:#32312f;
+}
+.ctime{
+    float:left;
+    width: 30%;
+    color:#373332;
+}
+</style>

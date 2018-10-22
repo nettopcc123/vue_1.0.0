@@ -9,7 +9,7 @@
         <alert class="showalert"></alert>
         <div class="bg" @click="isalerthid"></div>
     </div>
-    <div class="vrw">
+    <div class="vrw" id="vrw">
         <transition :name="transitionName">
             <router-view class="child-view"></router-view>
         </transition>
@@ -407,7 +407,6 @@ button{
   left: 0;  
   top: 0;  
   width: 100%;  
-  height: 100%;  
   transition: all .5s cubic-bezier(.55,0,.1,1);  
 }  
 .slide-left-enter, .slide-right-leave-active {  
@@ -434,5 +433,11 @@ button{
     z-index:10;
     width: 100%;
     height: 100%;
+}
+.clear{
+    clear: both;
+    border:none!important;
+    width: 0rem!important;
+    height: 0rem!important;
 }
 </style>
