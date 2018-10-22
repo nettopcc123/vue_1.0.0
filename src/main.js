@@ -25,3 +25,19 @@ new Vue({
   },
   template: '<App/>'
 })
+
+
+//判断用户是否登入
+router.beforeEach((to, from, next) => {
+    // 这里会持续性的输出 null
+    console.log(JSON.stringify(store.state.user.user)) 
+    if(store.state.user.user !== null){
+        next()
+    }else {
+      console.log('用户尚未登录')
+        next({
+            path: '/login',
+            query: {redirect: to.fullPath}
+        })
+    }
+})

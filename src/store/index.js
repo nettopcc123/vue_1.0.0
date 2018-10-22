@@ -10,6 +10,7 @@ const store = new Vuex.Store({
  state: {
     isload:false,
     isalert:false,
+    user:''
  },
  mutations: {
    isloadhid(state){
