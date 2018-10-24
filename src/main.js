@@ -27,6 +27,8 @@ new Vue({
 })
 
 
+
+
 //判断用户是否登入
 router.beforeEach((to, from, next) => {
     // 这里会持续性的输出 null

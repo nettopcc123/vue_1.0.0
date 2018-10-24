@@ -3,12 +3,12 @@
        <h2 class="itit">彩市头条 <span><router-link to="/newlists">更多>></router-link></span></h2>
         <ul class="nlist">
             <li v-for="(value, key) in newList">
-                <router-link :to="{ name: 'newsMore', params: { userId: key }}">
-                <span class="nimg"><img src="./../components/img/bann02.jpg"></span>
+                <router-link :to="{ name: 'newsMore', params: { userId: key , page: num}}">
+                <span class="nimg"><img v-bind:src="value.image" ></span>
                 <span class="newsCtn">
-                    <h2 class="ntit">{{ value.title }}</h2>
+                    <h2 class="ntit">{{ value.text | filter }}</h2>
                     <p>{{ value.content }}</p>
-                    <i class="mark2">{{ value.time }}</i>
+                    <i class="mark2">{{ value.username }}</i>
                 </span>
                 </router-link>
             </li>
@@ -23,7 +23,10 @@
  </template>
 
 <script>
-import axios from 'axios'
+import Vue from 'Vue';
+import axios from 'axios';
+
+
 export default {
   name: 'newlists',
   data () {
@@ -33,6 +36,15 @@ export default {
       loading: false,
       num:0,
       tips:'努力加载中...'
+    }
+  },
+  filters:{
+    filter:function(value){
+        if (!value) return '';
+        if (value.length > 8) {
+          return value.slice(0,8) + '...'
+        }
+        return value
     }
   },
   created: function(){
@@ -45,8 +57,9 @@ export default {
   },
   methods: {
         newVue:function(num){
-            axios.get('static/news.json?num' + num)  ///static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
+            axios.get('https://www.apiopen.top/satinGodApi?type=1&page=' + num)  ///static/news.json?num  static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
             .then(res => {
+              console.log(res.data.data);
               res.data.data.forEach(v => {
                 this.newList.push(v)
               });
@@ -111,6 +124,10 @@ export default {
   width: 0.5rem;
   height: 0.2rem;
   margin:0 auto;
+}
+.nimg img{
+  width: 1rem;
+  height:1rem;
 }
 </style>
 
