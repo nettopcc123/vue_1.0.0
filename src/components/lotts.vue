@@ -1,8 +1,8 @@
 <template>
 <div id="lotts">
-       <h2 class="itit">开奖信息 <span></span></h2>
+       <h2 class="uitit">开奖信息 <span></span></h2>
         <ul class="llist">
-            <li v-for="(value, key) in lottslist">
+            <li v-for="(value, key) in lottslist" >
                 <div class="limg">
                     <img :src="require('./../components/img/'+ value.img)">
                 </div>
@@ -31,10 +31,11 @@ export default {
   },
   methods: {
         newVue:function(){
-            axios.get('/static/lotts.json')  //http://misc.opencai.net/consts/lotts.json   /static/news.json
+            var url=window.encodeURIComponent("http://154.48.238.35:8081/api/rd?rdurl=http://f.apiplus.net/dlt.json");
+            axios.get('/static/lotts.json')  //http://10.20.20.182:8083/api/rd   http://misc.opencai.net/consts/lotts.json   /static/news.json
             .then(res => {
-                console.log(res.data)
-                this.lottslist = res.data
+                console.log(res.data);
+                this.lottslist = res.data;
             })
             .catch(error => {
                 console.log(error);
@@ -100,5 +101,14 @@ export default {
     float:left;
     width: 30%;
     color:#373332;
+}
+.uitit{
+    display: block;
+    line-height: 0.36rem!important;
+    border-left: 0.03rem solid #b30101!important;
+    padding-left:0.15rem;
+    font-size: 0.18rem;
+    text-align: left;
+    background:#fff!important;
 }
 </style>

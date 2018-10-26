@@ -2,7 +2,7 @@
 <template>
   <div class="newlists" id="newlists">
         <ul class="nlist">
-            <li v-for="(value, key) in newList">
+            <li v-for="(value, key) in newList" v-if="value.ListImgUrl == '' ? value.ListImgUrl = noimg : value.ListImgUrl">
                 <router-link :to="{ name: 'newsMore1', params: { articid: value.ArticleId , page: num}}">
                 <span class="nimg"><img v-bind:src="value.ListImgUrl" ></span>
                 <span class="newsCtn">
@@ -34,6 +34,7 @@ export default {
       num:0,
       tips:'努力加载中...',
       url1: '',
+      noimg: require('../assets/noimg.jpg'),
     }
   },
   created: function(){
