@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">应彩资讯</div>
+    <div class="header" v-if="isBanner">极速时时彩彩票资讯</div>
     <div style="position:restive" v-if="isload">
         <loading class="showload"></loading>
         <div class="bg" @click="isloadhid"></div>
@@ -17,21 +17,21 @@
     <div class="footer">
         <ul>
             <li>
-                <router-link :to="{ name: 'Index'}">
+                <router-link :to="{ name: 'Index1'}">
                     <i class="iconfont icon-home fico"></i>
                     <p>资讯大厅</p>
                 </router-link>
              </li>
             <li >
-                <router-link :to="{ name: 'newlists'}" v-bind:class="{ active: isNews }">
+                <router-link :to="{ name: 'news'}" v-bind:class="{ active: isNews }">
                     <i class="iconfont icon-news fico"></i>
-                    <p>彩市头条</p>
+                    <p>热点新闻</p>
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'lotts'}">
+                <router-link :to="{ name: 'htmlViewSample'}">
                     <i class="iconfont icon-info fico"></i>
-                    <p>开奖信息</p>
+                    <p>足球资讯</p>
                 </router-link>
             </li>
             <li>
@@ -53,7 +53,8 @@ export default {
         return{  
             transitionName: 'slide-left', 
             isActive: false,
-            isNews: false
+            isNews: false,
+            isBanner: false,
         }  
     },
 　　watch: {
@@ -69,16 +70,26 @@ export default {
     $route(to,from){
         if(to.path == '/feedback' || to.path == '/disclaimer' || to.path == '/message' || to.path == '/favorites'){ //用户中心
             this.isActive = true;
+            this.isBanner = false;
+            console.log(document.getElementById('vrw').scrollTop + '-------------vrw');
         }else{
             this.isActive = false;
+            this.isBanner = false;
         }
 
-        if(to.path == '/newsMore'){ //新闻中心
+        if(to.path == '/newsMore' || to.path == '/newsMore1' || to.path == '/newlists1' || to.path == '/newlists2' || to.path == '/newlists3'){ //新闻中心
             this.isNews = true;
+            this.isBanner = false;
+            console.log(document.getElementById('vrw').scrollTop + '-------------vrw');
+
         }else{
             this.isNews = false;
+            this.isBanner = true;
         }
-
+        if(to.path != from.path){ //滚动条置顶
+            document.getElementById('vrw').scrollTop = 0;
+        }
+        
     },
 　 },
    components:{
@@ -105,7 +116,7 @@ export default {
           },
           isloadhid() {
             this.$store.commit('isloadhid');
-          }
+          },
   }
 }
 
@@ -339,7 +350,6 @@ button{
     left:0px;
     display: block;
     width: 100%;
-    height: 8%;
 }
 .footer ul{
     width: 100%;

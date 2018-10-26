@@ -1,14 +1,13 @@
 
 <template>
   <div class="newlists" id="newlists">
-    <h2 class="itit">彩市头条 <span><router-link to="/newlists">更多>></router-link></span></h2>
         <ul class="nlist">
             <li v-for="(value, key) in newList">
-                <router-link :to="{ name: 'newsMore', params: { userId: key , page: num}}">
-                <span class="nimg"><img v-bind:src="value.image" ></span>
+                <router-link :to="{ name: 'newsMore1', params: { articid: value.ArticleId , page: num}}">
+                <span class="nimg"><img v-bind:src="value.ListImgUrl" ></span>
                 <span class="newsCtn">
-                    <h2 class="ntit">{{ value.text | filter }}</h2>
-                    <p>{{ value.content }}</p>
+                    <h2 class="ntit">{{ value.A_Title | filter | restr }}</h2>
+                    <p class="ntb"><span class="ntime">{{ value.CreateTimeString }}</span><span class="nname"> 竞彩蓝球</span></p>
                     <i class="mark2">{{ value.username }}</i>
                 </span>
                 </router-link>
@@ -38,7 +37,9 @@ export default {
     }
   },
   created: function(){
-    this.newVue(this.num);
+    if(this.num == 0){
+      this.newVue(this.num);
+    }
   },
   mounted: function () {
     this.$nextTick(() => {//在下次 DOM 更新循环结束之后执行延迟回调
@@ -49,10 +50,17 @@ export default {
   filters:{
     filter:function(value){
         if (!value) return '';
-        if (value.length > 8) {
-          return value.slice(0,8) + '...'
+        if (value.length > 40) {
+          return value.slice(0,40) + '...'
         }
         return value
+    },
+    restr:function(value){
+      if (!value) return '';
+      if (value.length > 2) {
+          return value.replace(/天天彩/, "极速时时彩彩票")
+      }
+      return value;
     }
   },
   computed:{
@@ -88,7 +96,9 @@ export default {
             return config;
           }, function (error) {
             // 对请求错误做些什么
-            console.log('2')
+            console.log('2');
+
+            
             return Promise.reject(error);
           });
 
@@ -97,7 +107,6 @@ export default {
             // 对响应数据做点什么
             console.log('a3')
             this.isloadhid();  
-            this.isloadhid;
            // this.$store.commit('isloadhid');
             return response;
           }, function (error) {
@@ -105,12 +114,9 @@ export default {
             // 对响应错误做点什么
             return Promise.reject(error);
           });
-            axios.get('https://www.apiopen.top/satinGodApi?type=1&page=' + num)  /// http://www.hd.me/data.php?callback=dosomething    static/news.json?num  static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
+            axios.get('https://ttcapi2.ttc178.com/api/sitemsg/getariclelist?c=1&v=1.0&t=1540456681&tk=&p=main&pageindex=' + num + '&category=HOT&s=cdfdd0026cdb71af5810e030ed05ea43')  /// http://www.hd.me/data.php?callback=dosomething    static/news.json?num  static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
             .then(res => {
-              console.log(typeof(res));
-             // res = JSON.parse(JSON.stringify(res.data));
-              console.log(res);
-              res.data.data.forEach(v => {
+              res.data.models.forEach(v => {
                 this.newList.push(v);
               });
               if( num >= 3){
@@ -124,17 +130,14 @@ export default {
             });
         },
         scrollBottom:function(){
-
           if( (($('#vrw').scrollTop() + (window.screen.height)) >  $('#newlists').height()) && this.REQUIRE == true && this.num <= 4 ){
               this.REQUIRE = false;
               this.loading = true;
               this.tips = '正在加载中';
+              this.num++;
               this.newVue(this.num);
-              this.$nextTick(() => {
-                this.REQUIRE = true;
-                this.loading = false;
-                this.num ++;
-              })
+              this.REQUIRE = true;
+              this.loading = false;
           }else{
             this.loading = true;
           }
@@ -154,7 +157,8 @@ export default {
   margin-bottom:0.05rem;
   text-align: left;
   font-size: 0.16rem;
-  color:#5b5b5b
+  color:#5b5b5b;
+  border-bottom:1px dotted #ccc
 }
 .nlist li a{
   font-size: 0.16rem;
@@ -162,7 +166,9 @@ export default {
 }
 .ntit{
   font-size: 0.14rem;
-  color:#303030
+  color:#303030;
+  font-weight: normal;
+  height: 0.3rem;
 }
 .infinite-scroll{
   width: 0.5rem;
@@ -171,7 +177,26 @@ export default {
 }
 .nimg img{
   width: 1rem;
-  height:1rem;
+  height:0.7rem;
 }
+.ntime{
+    color: #b5b5b5;
+    width: 50%;
+    text-align: left;
+    float:right;
+}
+.nname{
+    width: 50%;
+    color: #de4c3a;
+    float:right;
+}
+.ntb{
+    display: block;
+    clear:both;
+    overflow: hidden;
+    margin-top:0.08rem;
+}
+
+
 </style>
 

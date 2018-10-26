@@ -30,7 +30,7 @@ export default {
             axios.get('https://www.apiopen.top/satinGodApi?type=1&page='+ this.$route.params.page)
             .then(res => {
               console.log(this.$route.params.page)
-                this.newList = res.data.data
+                this.newList = res.data.data;
             })
             .catch(error => {
                 console.log(error);

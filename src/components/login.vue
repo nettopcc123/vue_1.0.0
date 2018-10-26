@@ -1,6 +1,6 @@
 <template>
-<div id="favorites">
-    <h2 class="uitit">我的收藏</h2>
+<div id="login">
+    <h2 class="itit">登入</h2>
     <div class="favors">
      你还没有收藏任何数据呢，去看看吧
     </div>
@@ -10,7 +10,7 @@
 
 import axios from 'axios'
 export default {
-  name:'favorites',
+  name:'login',
   data(){
     return {
       weather:[],
@@ -32,14 +32,5 @@ export default {
  font-size: 0.14rem;
  color: #4a4a4a;
  margin-top:0.2rem
-}
-.uitit{
-    display: block;
-    line-height: 0.36rem!important;
-    border-left: 0.03rem solid #b30101!important;
-    padding-left:0.15rem;
-    font-size: 0.18rem;
-    text-align: left;
-    background:#fff!important;
 }
 </style>

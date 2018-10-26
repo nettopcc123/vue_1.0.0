@@ -1,7 +1,7 @@
 
 <template>
   <div class="user">
-    <h2 class="itit">用户中心</h2>
+    <h2 class="uitit">用户中心</h2>
       <ul class="uselis">
          <li><router-link :to="{name:'feedback'}" class="userouter">意见反馈<i class="iconfont icon-next usenext"></i></router-link></li>
          <li><router-link :to="{name:'disclaimer'}" class="userouter">免责声明<i class="iconfont icon-next usenext"></i></router-link></li>
@@ -16,6 +16,7 @@ import axios from 'axios'
 import banner from './../components/banner' 
 import newlists from './../components/newlists'
 import { setTimeout } from 'timers';
+
 
 
 export default {
@@ -36,26 +37,24 @@ export default {
     'vue-newlists':newlists,
   },
   methods:{
-          isalertshow() {
-            this.$store.commit('isalertshow');
-          },
-          isalerthid() {
-            this.$store.commit('isalerthid');
-          },
-          isloadshow() {
-            this.$store.commit('isloadshow');
-            setTimeout(()=>{
-              this.isloadhid();
-              this.$toast.center('清除成功');
-            },2000)
-          },
-          isloadhid() {
-            this.$store.commit('isloadhid');
-          }
+      isalertshow() {
+        this.$store.commit('isalertshow');
+      },
+      isalerthid() {
+        this.$store.commit('isalerthid');
+      },
+      isloadshow() {
+        this.$store.commit('isloadshow');
+          setTimeout(()=>{
+            this.isloadhid();
+            this.$toast.center('清除成功');
+          },2000)
+      },
+      isloadhid() {
+        this.$store.commit('isloadhid');
+      }
   }
 }
-
-
 </script>
 
 <style>
@@ -87,5 +86,14 @@ export default {
 }
 .userouter{
   display: block
+}
+.uitit{
+    display: block;
+    line-height: 0.36rem!important;
+    border-left: 0.03rem solid #b30101!important;
+    padding-left:0.15rem;
+    font-size: 0.18rem;
+    text-align: left;
+    background:#fff!important;
 }
 </style>

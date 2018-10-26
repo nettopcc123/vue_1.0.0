@@ -10,6 +10,7 @@ const store = new Vuex.Store({
  state: {
     isload:false,
     isalert:false,
+    loading:false,
     user:''
  },
  mutations: {
@@ -27,8 +28,5 @@ const store = new Vuex.Store({
    }
 }
 });
-
-
-
 
 export default store

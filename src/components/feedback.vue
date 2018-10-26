@@ -1,6 +1,6 @@
 <template>
 <div id="feedback">
-  <h2 class="itit">意见反馈</h2>
+  <h2 class="uitit">意见反馈</h2>
   <textarea v-bind:maxlength="140" @input="descArea" v-model="introduct" name="abstract" id="abstract" placeholder="您的意见，会让我们更优秀。"class="ftext"></textarea>
   <span class="num-desc">您还可以输入 {{Surplus}} 个字符 / 共 140 个字符</span>
   <button class="fbut" @click="isloadshow()">提交</button>
@@ -67,5 +67,14 @@ export default {
   width: 94%;
   margin:0 auto 0.2rem;
   color:#8f8f8f
+}
+.uitit{
+    display: block;
+    line-height: 0.36rem!important;
+    border-left: 0.03rem solid #b30101!important;
+    padding-left:0.15rem;
+    font-size: 0.18rem;
+    text-align: left;
+    background:#fff!important;
 }
 </style>

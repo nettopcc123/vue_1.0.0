@@ -10,10 +10,18 @@ import store from './store';
 import Vuex from 'vuex'
 import 'vue2-toast/lib/toast.css';
 import Toast from 'vue2-toast';
+import $ from 'jquery'
 
+
+/**
+ 4. 拼团详情
+ */
+export const groupDetail = param => {
+  return req.get('/RestHome/GroupDetail',param)
+}
 
 Vue.prototype.axios = axios;
-Vue.use(VueAwesomeSwiper,Vuex,Toast)
+Vue.use(VueAwesomeSwiper,Vuex,$)
 Vue.config.productionTip = false
 
 new Vue({
@@ -27,6 +35,13 @@ new Vue({
 })
 
 
+
+Vue.use(Toast, {
+    type: 'center',
+    duration: 3000,
+    wordWrap: true,
+    width: '150px'
+});
 
 
 //判断用户是否登入
