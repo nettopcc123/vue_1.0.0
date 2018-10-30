@@ -11,7 +11,8 @@ import Vuex from 'vuex'
 import 'vue2-toast/lib/toast.css';
 import Toast from 'vue2-toast';
 import $ from 'jquery';
-import promise from 'es6-promise' ;
+import promise from 'es6-promise';
+import VueStar from 'vue-star';
 promise.polyfill();
 
 
@@ -26,6 +27,8 @@ Es6Promise.polyfill();
 export const groupDetail = param => {
   return req.get('/RestHome/GroupDetail',param);
 }
+
+Vue.component('VueStar', VueStar)
 
 Vue.prototype.axios = axios;
 Vue.use(VueAwesomeSwiper,Vuex,$);

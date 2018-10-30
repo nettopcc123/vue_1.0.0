@@ -29,6 +29,7 @@ const disclaimer = r => require.ensure([],() => r(require('@/components/disclaim
 const message = r => require.ensure([],() => r(require('@/components/message')), 'message');
 const favorites = r => require.ensure([],() => r(require('@/components/favorites')), 'favorites');
 const htmlViewSample = r => require.ensure([],() => r(require('@/components/htmlViewSample')), 'htmlViewSample');
+const marquee = r => require.ensure([],() => r(require('@/components/marquee')), 'marquee');
 
 
 Vue.use(Router)
@@ -117,15 +118,20 @@ export default new Router({
       name:'favorites',
       component:favorites
     }
-    // ,{
-    //   path:'/',
-    //   name:'Index1',
-    //   component:Index1
-    // }
+    ,{
+      path:'/',
+      name:'Index1',
+      component:Index1
+    }
     ,{
       path:'/htmlViewSample',
       name:'htmlViewSample',
       component:htmlViewSample
+    }
+    ,{
+      path:'/marquee',
+      name:'marquee',
+      component:marquee
     }
   ]
 })
