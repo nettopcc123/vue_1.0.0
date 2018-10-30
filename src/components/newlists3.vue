@@ -19,9 +19,9 @@
 </template>
 <script>
 
-import axios from 'axios'
-import banner from './../components/banner' 
-import newlists from './../components/newlists'
+import axios from 'axios';
+import banner from './../components/banner';
+import newlists from './../components/newlists';
 import { setTimeout } from 'timers';
 import $ from 'jquery';
 
@@ -56,14 +56,14 @@ export default {
     filter:function(value){
         if (!value) return '';
         if (value.length > 40) {
-          return value.slice(0,40) + '...'
+          return value.slice(0,40) + '...';
         }
-        return value
+        return value;
     },
     restr:function(value){
       if (!value) return '';
       if (value.length > 2) {
-          return value.replace(/天天彩/, "应彩")
+          return value.replace(/天天彩/, "应彩");
       }
       return value;
     }
@@ -75,7 +75,7 @@ export default {
   },
   components: {
     'vue-banner':banner,
-    'vue-newlists':newlists,
+    'vue-newlists':newlists
   },
   methods:{
       isalertshow() {
@@ -97,23 +97,23 @@ export default {
       newVue:function(num){
         axios.interceptors.request.use(config => {  
           this.isloadshow();      
-             console.log('1')
+             console.log('1');
             return config;
           }, function (error) {
             // 对请求错误做些什么
-            console.log('2')
+            console.log('2');
             return Promise.reject(error);
           });
 
         // 添加响应拦截器
         axios.interceptors.response.use(response => {
             // 对响应数据做点什么
-            console.log('a3')
+            console.log('a3');
             this.isloadhid();  
            // this.$store.commit('isloadhid');
             return response;
           }, function (error) {
-            console.log('4')
+            console.log('4');
             // 对响应错误做点什么
             return Promise.reject(error);
           });

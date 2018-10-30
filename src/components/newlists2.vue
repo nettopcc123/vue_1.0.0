@@ -18,9 +18,9 @@
 </template>
 <script>
 
-import axios from 'axios'
-import banner from './../components/banner' 
-import newlists from './../components/newlists'
+import axios from 'axios';
+import banner from './../components/banner';
+import newlists from './../components/newlists';
 import { setTimeout } from 'timers';
 import $ from 'jquery'
 
@@ -35,7 +35,7 @@ export default {
       num:0,
       tips:'努力加载中...',
       url1: '',
-      noimg: require('../assets/noimg.jpg'),
+      noimg: require('../assets/noimg.jpg')
     }
   },
   created: function(){
@@ -46,21 +46,21 @@ export default {
   mounted: function () {
     this.$nextTick(() => {//在下次 DOM 更新循环结束之后执行延迟回调
           document.getElementById('vrw').addEventListener('scroll',this.scrollBottom);
-          this.url1 = 'https://m.sporttery.cn/app/zf/fb/livelist.html'
+          this.url1 = 'https://m.sporttery.cn/app/zf/fb/livelist.html';
     })
   },
   filters:{
     filter:function(value){
         if (!value) return '';
         if (value.length > 40) {
-          return value.slice(0,40) + '...'
+          return value.slice(0,40) + '...';
         }
-        return value
+        return value;
     },
     restr:function(value){
       if (!value) return '';
       if (value.length > 2) {
-          return value.replace(/天天彩/, "极速时时彩彩票")
+          return value.replace(/天天彩/, "极速时时彩彩票");
       }
       return value;
     }
@@ -72,7 +72,7 @@ export default {
   },
   components: {
     'vue-banner':banner,
-    'vue-newlists':newlists,
+    'vue-newlists':newlists
   },
   methods:{
       isalertshow() {
@@ -94,7 +94,7 @@ export default {
       newVue:function(num){
         axios.interceptors.request.use(config => {  
           this.isloadshow();      
-             console.log('1')
+             console.log('1');
             return config;
           }, function (error) {
             // 对请求错误做些什么
@@ -105,12 +105,12 @@ export default {
         // 添加响应拦截器
         axios.interceptors.response.use(response => {
             // 对响应数据做点什么
-            console.log('a3')
+            console.log('a3');
             this.isloadhid();  
            // this.$store.commit('isloadhid');
             return response;
           }, function (error) {
-            console.log('4')
+            console.log('4');
             // 对响应错误做点什么
             return Promise.reject(error);
           });

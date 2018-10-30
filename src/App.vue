@@ -45,8 +45,8 @@
   </div>
 </template>
 <script>
-import loading from '@/components/loading'
-import alert from '@/components/alert'
+import loading from '@/components/loading';
+import alert from '@/components/alert';
 export default {
   name: 'App',
     data(){  
@@ -54,16 +54,16 @@ export default {
             transitionName: 'slide-left', 
             isActive: false,
             isNews: false,
-            isBanner: false,
+            isBanner: false
         }  
     },
 　　watch: {
 　　　'$route' (to, from) {
-　　　　let isBack = this.$router.isBack // 监听路由变化时的状态为前进还是后退
+       var isBack = this.$router.isBack; // 监听路由变化时的状态为前进还是后退
 　　　　　　if(isBack) {
-　　　　　　　this.transitionName = 'slide-right'
+　　　　　　　this.transitionName = 'slide-right';
 　　　　　　} else {
-　　　　　　 this.transitionName = 'slide-left'
+　　　　　　 this.transitionName = 'slide-left';
 　　　　　}
 　　    this.$router.isBack = false;
 　　},
@@ -71,7 +71,6 @@ export default {
         if(to.path == '/feedback' || to.path == '/disclaimer' || to.path == '/message' || to.path == '/favorites'){ //用户中心
             this.isActive = true;
             this.isBanner = false;
-            console.log(document.getElementById('vrw').scrollTop + '-------------vrw');
         }else{
             this.isActive = false;
             this.isBanner = false;
@@ -80,8 +79,6 @@ export default {
         if(to.path == '/newsMore' || to.path == '/newsMore1' || to.path == '/newlists1' || to.path == '/newlists2' || to.path == '/newlists3'){ //新闻中心
             this.isNews = true;
             this.isBanner = false;
-            console.log(document.getElementById('vrw').scrollTop + '-------------vrw');
-
         }else{
             this.isNews = false;
             this.isBanner = true;
@@ -98,10 +95,10 @@ export default {
    },
   computed:{
     isload(){
-        return this.$store.state.isload
+        return this.$store.state.isload;
     },
     isalert(){
-        return this.$store.state.isalert
+        return this.$store.state.isalert;
     }
   },
   methods:{

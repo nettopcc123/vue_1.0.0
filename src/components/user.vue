@@ -12,9 +12,9 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
-import banner from './../components/banner' 
-import newlists from './../components/newlists'
+import axios from 'axios';
+import banner from './../components/banner' ;
+import newlists from './../components/newlists';
 import { setTimeout } from 'timers';
 
 
@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       newList:[],
-      count:0,
+      count:0
     }
   },
   computed:{
@@ -34,7 +34,7 @@ export default {
   },
   components: {
     'vue-banner':banner,
-    'vue-newlists':newlists,
+    'vue-newlists':newlists
   },
   methods:{
       isalertshow() {

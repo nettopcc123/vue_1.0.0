@@ -10,26 +10,26 @@
  </div> 
  </template>
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
   name: 'newsMore',
   data () {
     return {
-      newList:[],
+      newList:[]
     }
   },
   mounted: function () {
     this.$nextTick(function(){
         this.newVue();
         console.log('bbb');
-        console.log(this.$route.params.userId)
+        console.log(this.$route.params.userId);
     })
   },
   methods: {
         newVue:function(){
             axios.get('https://www.apiopen.top/satinGodApi?type=1&page='+ this.$route.params.page)
             .then(res => {
-              console.log(this.$route.params.page)
+              console.log(this.$route.params.page);
                 this.newList = res.data.data;
             })
             .catch(error => {

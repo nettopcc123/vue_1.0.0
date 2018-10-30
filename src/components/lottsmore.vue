@@ -17,7 +17,7 @@
  </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
   name: 'lotts',
   data () {
@@ -36,7 +36,7 @@ export default {
             axios.get('/static/lotts.json')  //http://misc.opencai.net/consts/lotts.json   /static/news.json
             .then(res => {
                 this.lottslist = res.data;
-                for(let k in this.lottslist){
+                for(var k in this.lottslist){
                     this.morlotts = this.lottslist[k].data;
                 }
             })

@@ -5,6 +5,15 @@
 const path = require('path')
 
 module.exports = {
+  chainWebpack:  config => {
+  // ie报错无效字符 添加该配置项 解决该问题
+    config.module
+      .rule('iview')
+      .test(/iview.src.*?js$/)
+      .use('babel')
+        .loader('babel-loader')
+        .end()
+  },
   dev: {
 
     // Paths
@@ -19,6 +28,7 @@ module.exports = {
         }
       }
     },
+    
 
 
     
@@ -37,7 +47,8 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'cheap-module-eval-source-map',
+    //devtool: 'cheap-module-eval-source-map',
+    devtool: 'inline-cheap-module-source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help
@@ -54,8 +65,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-
+    assetsPublicPath: './',
+    productionSourceMap: true,
     /**
      * Source Maps
      */

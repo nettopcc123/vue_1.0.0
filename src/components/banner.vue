@@ -2,10 +2,10 @@
 <div id="container">
  <swiper :options="swiperOption" ref="mySwiper">
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/banner_h01.jpg')" alt="">
+   <img :src="require('./../components/img/banner_h01.jpg?1111')" alt="">
   </swiper-slide>
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/banner_h02.jpg')" alt="">
+   <img :src="require('./../components/img/banner_h02.jpg?1111')" alt="">
   </swiper-slide>
   <div class="swiper-pagination" slot="pagination"></div>
   <!-- <div class="swiper-button-prev" slot="button-prev"></div>
@@ -14,7 +14,7 @@
  </div> 
  </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
  export default {
   name: 'carrousel',
   data () {
@@ -36,7 +36,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
      pagination: {
       el: '.swiper-pagination',
       // type : 'progressbar', //分页器形状
-      clickable :true, //点击分页器的指示点分页器会控制Swiper切换
+      clickable :true //点击分页器的指示点分页器会控制Swiper切换
      },
     //  navigation: {
     //   nextEl: '.swiper-button-next',

@@ -15,11 +15,11 @@ export default {
   },
   methods: {
     toast (str) {
-        let v = this
-        v.toastText = str
-        v.toastShow = true
+        var v = this;
+        v.toastText = str;
+        v.toastShow = true;
         setTimeout(function(){
-        v.toastShow = false
+        v.toastShow = false;
         }, 1500)
     }
   }

@@ -13,7 +13,7 @@ export default {
   name:'favorites',
   data(){
     return {
-      weather:[],
+      weather:[]
     }
   },
   mounted:function(){

@@ -17,11 +17,11 @@
 </template>
 <script>
 
-import axios from 'axios'
-import banner from './../components/banner' 
-import newlists from './../components/newlists'
+import axios from 'axios';
+import banner from './../components/banner';
+import newlists from './../components/newlists';
 import { setTimeout } from 'timers';
-import $ from 'jquery'
+import $ from 'jquery';
 
 
 export default {
@@ -34,7 +34,7 @@ export default {
       num:0,
       tips:'努力加载中...',
       url1: '',
-      noimg: require('../assets/noimg.jpg'),
+      noimg: require('../assets/noimg.jpg')
     }
   },
   created: function(){
@@ -45,21 +45,21 @@ export default {
   mounted: function () {
     this.$nextTick(() => {//在下次 DOM 更新循环结束之后执行延迟回调
           document.getElementById('vrw').addEventListener('scroll',this.scrollBottom);
-          this.url1 = 'https://m.sporttery.cn/app/zf/fb/livelist.html'
+          this.url1 = 'https://m.sporttery.cn/app/zf/fb/livelist.html';
     })
   },
   filters:{
     filter:function(value){
         if (!value) return '';
         if (value.length > 40) {
-          return value.slice(0,40) + '...'
+          return value.slice(0,40) + '...';
         }
-        return value
+        return value;
     },
     restr:function(value){
       if (!value) return '';
       if (value.length > 2) {
-          return value.replace(/天天彩/, "极速时时彩彩票")
+          return value.replace(/天天彩/, "极速时时彩彩票");
       }
       return value;
     }
@@ -71,7 +71,7 @@ export default {
   },
   components: {
     'vue-banner':banner,
-    'vue-newlists':newlists,
+    'vue-newlists':newlists
   },
   methods:{
       isalertshow() {

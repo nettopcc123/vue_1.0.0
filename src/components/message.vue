@@ -10,7 +10,7 @@
 export default {
   name:'message',
   methods:{
-
+    
   }
 }
 </script>

@@ -4,23 +4,16 @@
     </div>
  </template>
   <script>
-  import { VueLoading } from 'vue-loading-template'
-  import newlists from './../components/newlists'
+  import { VueLoading } from 'vue-loading-template';
+  import newlists from './../components/newlists';
   import router from './../router';
-
-
-
   export default {
     name: 'app',
     components: {
       VueLoading
     }
   }
-
-  
-
   </script>
-
 <style>
 .showload{
     position:fixed;

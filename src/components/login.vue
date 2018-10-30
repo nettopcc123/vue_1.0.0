@@ -8,12 +8,12 @@
  </template>
 <script>
 
-import axios from 'axios'
+import axios from 'axios';
 export default {
   name:'login',
   data(){
     return {
-      weather:[],
+      weather:[]
     }
   },
   mounted:function(){

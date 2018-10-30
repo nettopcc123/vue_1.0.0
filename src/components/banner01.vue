@@ -2,16 +2,16 @@
 <div id="container">
  <swiper :options="swiperOption" ref="mySwiper">
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/banner_h03.jpg')" alt="">
+   <img :src="require('./../components/img/banner_h03.jpg?1111')" alt="">
   </swiper-slide>
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/banner_h04.jpg')" alt="">
+   <img :src="require('./../components/img/banner_h04.jpg?1111')" alt="">
   </swiper-slide>
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/banner_h05.jpg')" alt="">
+   <img :src="require('./../components/img/banner_h05.jpg?1111')" alt="">
   </swiper-slide>
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/banner_h06.jpg')" alt="">
+   <img :src="require('./../components/img/banner_h06.jpg?1111')" alt="">
   </swiper-slide>
   <div class="swiper-pagination" slot="pagination"></div>
   <!-- <div class="swiper-button-prev" slot="button-prev"></div>
@@ -20,7 +20,7 @@
  </div> 
  </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
  export default {
   name: 'carrousel',
   data () {
@@ -38,11 +38,10 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
      scrollbar: '.swiper-scrollbar',
      mousewheelControl: true, //设置为true时，能使用鼠标滚轮控制slide滑动
      observeParents: true, //当改变swiper的样式（例如隐藏/显示）或者修改swiper的子元素时，自动初始化swiper
- 
      pagination: {
       el: '.swiper-pagination',
       // type : 'progressbar', //分页器形状
-      clickable :true, //点击分页器的指示点分页器会控制Swiper切换
+      clickable :true //点击分页器的指示点分页器会控制Swiper切换
      },
     //  navigation: {
     //   nextEl: '.swiper-button-next',

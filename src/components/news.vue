@@ -18,11 +18,11 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
-import banner01 from './../components/banner01' 
-import newlists from './../components/newlists'
+import axios from 'axios';
+import banner01 from './../components/banner01';
+import newlists from './../components/newlists';
 import { setTimeout } from 'timers';
-import $ from 'jquery'
+import $ from 'jquery';
 
 export default {
   name: 'user',
@@ -39,7 +39,7 @@ export default {
   },
   components: {
     'vue-banner01':banner01,
-    'vue-newlists':newlists,
+    'vue-newlists':newlists
   }
 }
 </script>

@@ -37,11 +37,11 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Index',
-    //   component: Index
-    // },
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    },
     {
       path: '/newlists',
       name: 'newlists',
@@ -56,7 +56,7 @@ export default new Router({
         {
           path: '/newlists1',
           name: 'newlists1',
-          component: newlists1,
+          component: newlists1
         },
         {
           path: '/newlists2',
@@ -116,11 +116,13 @@ export default new Router({
       path:'/favorites',
       name:'favorites',
       component:favorites
-    },{
-      path:'/',
-      name:'Index1',
-      component:Index1
-    },{
+    }
+    // ,{
+    //   path:'/',
+    //   name:'Index1',
+    //   component:Index1
+    // }
+    ,{
       path:'/htmlViewSample',
       name:'htmlViewSample',
       component:htmlViewSample

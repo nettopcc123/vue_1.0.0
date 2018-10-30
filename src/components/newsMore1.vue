@@ -6,7 +6,7 @@
  </div> 
  </template>
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
   name: 'newsMore',
   data () {
@@ -17,9 +17,9 @@ export default {
   },
   mounted: function () {
     this.$nextTick(function(){
-        this.newVue()
+        this.newVue();
         console.log('bbb');
-        console.log(this.$route.params.articid)
+        console.log(this.$route.params.articid);
     })
   },
   methods: {

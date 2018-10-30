@@ -33,7 +33,7 @@ export default {
       loading: false,
       num:0,
       tips:'努力加载中...',
-      url1: '',
+      url1: ''
     }
   },
   created: function(){
@@ -42,16 +42,16 @@ export default {
   mounted: function () {
     this.$nextTick(() => {//在下次 DOM 更新循环结束之后执行延迟回调
           document.getElementById('vrw').addEventListener('scroll',this.scrollBottom);
-          this.url1 = 'https://m.sporttery.cn/app/zf/fb/livelist.html'
+          this.url1 = 'https://m.sporttery.cn/app/zf/fb/livelist.html';
     })
   },
   filters:{
     filter:function(value){
         if (!value) return '';
         if (value.length > 40) {
-          return value.slice(0,40) + '...'
+          return value.slice(0,40) + '...';
         }
-        return value
+        return value;
     }
   },
   computed:{
@@ -100,7 +100,7 @@ export default {
            // this.$store.commit('isloadhid');
             return response;
           }, function (error) {
-            console.log('4')
+            console.log('4');
             // 对响应错误做点什么
             return Promise.reject(error);
           });

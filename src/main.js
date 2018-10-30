@@ -10,19 +10,26 @@ import store from './store';
 import Vuex from 'vuex'
 import 'vue2-toast/lib/toast.css';
 import Toast from 'vue2-toast';
-import $ from 'jquery'
+import $ from 'jquery';
+import promise from 'es6-promise' ;
+promise.polyfill();
 
+
+import 'babel-polyfill';
+import Es6Promise from 'es6-promise';
+require('es6-promise').polyfill();
+Es6Promise.polyfill();
 
 /**
  4. 拼团详情
  */
 export const groupDetail = param => {
-  return req.get('/RestHome/GroupDetail',param)
+  return req.get('/RestHome/GroupDetail',param);
 }
 
 Vue.prototype.axios = axios;
-Vue.use(VueAwesomeSwiper,Vuex,$)
-Vue.config.productionTip = false
+Vue.use(VueAwesomeSwiper,Vuex,$);
+Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',
@@ -47,11 +54,11 @@ Vue.use(Toast, {
 //判断用户是否登入
 router.beforeEach((to, from, next) => {
     // 这里会持续性的输出 null
-    console.log(JSON.stringify(store.state.user.user)) 
+    console.log(JSON.stringify(store.state.user.user));
     if(store.state.user.user !== null){
         next()
     }else {
-      console.log('用户尚未登录')
+      console.log('用户尚未登录');
         next({
             path: '/login',
             query: {redirect: to.fullPath}
