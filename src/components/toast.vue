@@ -27,7 +27,8 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
+@import "scss/base.scss";
 .toast {
     position: fixed;
     z-index: 2000;

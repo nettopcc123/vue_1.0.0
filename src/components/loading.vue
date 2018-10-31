@@ -1,6 +1,6 @@
  <template>
     <div>
-       <vue-loading type="spiningDubbles" color="#d9544e" :size="{ width: '50px', height: '50px' }"></vue-loading>    
+       <vue-loading type="spin" color="#d9544e" :size="{ width: '50px', height: '50px' }"></vue-loading>    
     </div>
  </template>
   <script>
@@ -14,7 +14,9 @@
     }
   }
   </script>
-<style>
+<style lang="scss">
+@import "scss/base.scss";
+//balls  bars  beat  bubbles cylon spin spiningDubbles  barsCylon
 .showload{
     position:fixed;
     left:50%;

@@ -24,8 +24,8 @@ const newsMore1 = r => require.ensure([],() => r(require('@/components/newsMore1
 const lotts = r => require.ensure([],() => r(require('@/components/lotts')), 'lotts');
 const lottsmore = r => require.ensure([],() => r(require('@/components/lottsmore')), 'lottsmore');
 const user = r => require.ensure([],() => r(require('@/components/user')), 'user');
-const feedback = r => require.ensure([],() => r(require('@/components/feedback')), 'feedback');
-const disclaimer = r => require.ensure([],() => r(require('@/components/disclaimer')), 'disclaimer');
+const feedback = r => require.ensure([],() => r(require('@/components/feedback01')), 'feedback');
+const disclaimer = r => require.ensure([],() => r(require('@/components/disclaimer01')), 'disclaimer');
 const message = r => require.ensure([],() => r(require('@/components/message')), 'message');
 const favorites = r => require.ensure([],() => r(require('@/components/favorites')), 'favorites');
 const htmlViewSample = r => require.ensure([],() => r(require('@/components/htmlViewSample')), 'htmlViewSample');

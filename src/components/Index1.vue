@@ -49,7 +49,8 @@ import banner from './../components/banner';
     }
 </script>
 
-<style>
+<style lang="scss">
+@import "scss/base.scss";
 .child-view{
     height:100%
 }

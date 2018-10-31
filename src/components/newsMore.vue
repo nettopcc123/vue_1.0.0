@@ -40,7 +40,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "scss/base.scss";
 .newtit{
   width: 96%;
   margin:0.1rem 2%;

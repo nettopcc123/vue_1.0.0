@@ -12,8 +12,16 @@ import 'vue2-toast/lib/toast.css';
 import Toast from 'vue2-toast';
 import $ from 'jquery';
 import promise from 'es6-promise';
-import VueStar from 'vue-star';
 promise.polyfill();
+
+
+//leancloud.cn
+var AV = require('leancloud-storage');
+var AV = require('leancloud-storage/live-query');
+var { Query, User } = AV;
+// 实时消息服务
+var { Realtime, TextMessage } = require('leancloud-realtime');
+
 
 
 import 'babel-polyfill';
@@ -28,7 +36,6 @@ export const groupDetail = param => {
   return req.get('/RestHome/GroupDetail',param);
 }
 
-Vue.component('VueStar', VueStar)
 
 Vue.prototype.axios = axios;
 Vue.use(VueAwesomeSwiper,Vuex,$);

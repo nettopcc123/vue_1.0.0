@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="header" v-if="isBanner">极速时时彩彩票资讯</div>
+    <!-- <div class="header" v-if="isBanner">大乐透走势规则助手</div> -->
+    <vue-header v-if="isHeard"></vue-header>
     <div style="position:restive" v-if="isload">
         <loading class="showload"></loading>
         <div class="bg" @click="isloadhid"></div>
@@ -14,7 +15,8 @@
             <router-view class="child-view"></router-view>
         </transition>
     </div>
-    <div class="footer">
+    <vue-footer></vue-footer>
+    <!-- <div class="footer">
         <ul>
             <li>
                 <router-link :to="{ name: 'Index1'}">
@@ -41,12 +43,17 @@
                 </router-link>
             </li>
         </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
 import loading from '@/components/loading';
 import alert from '@/components/alert';
+import header from '@/components/header';
+import footer from '@/components/footer';
+
+
+
 export default {
   name: 'App',
     data(){  
@@ -54,7 +61,8 @@ export default {
             transitionName: 'slide-left', 
             isActive: false,
             isNews: false,
-            isBanner: false
+            isBanner: false,
+            isHeard: false
         }  
     },
 　　watch: {
@@ -68,12 +76,10 @@ export default {
 　　    this.$router.isBack = false;
 　　},
     $route(to,from){
-        if(to.path == '/feedback' || to.path == '/disclaimer' || to.path == '/message' || to.path == '/favorites'){ //用户中心
-            this.isActive = true;
-            this.isBanner = false;
+        if(to.path == '/newsMore1'){ //用户中心
+            this.isHeard = false;
         }else{
-            this.isActive = false;
-            this.isBanner = false;
+            this.isHeard = true;
         }
 
         if(to.path == '/newsMore' || to.path == '/newsMore1' || to.path == '/newlists1' || to.path == '/newlists2' || to.path == '/newlists3'){ //新闻中心
@@ -84,14 +90,16 @@ export default {
             this.isBanner = true;
         }
         if(to.path != from.path){ //滚动条置顶
-            document.getElementById('vrw').scrollTop = 0;
+           // document.getElementById('vrw').scrollTop = 0;
         }
         
     },
 　 },
    components:{
       loading,
-      alert
+      alert,
+      'vue-header':header,
+      'vue-footer':footer
    },
   computed:{
     isload(){
@@ -119,7 +127,8 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
+@import "base.scss";
 @media screen and (min-width: 320px) {
     html {
         font-size: 85px;
@@ -166,14 +175,10 @@ html {
 }
 body{
     height:100%;
-    background:#fff;
+    background:#e7e7e7;
     overflow-x: hidden;
 }
-body{
-    height:100%;
-    background:#fff;
-    overflow-x: hidden;
-}
+
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, button,th, td ,a ,span{
 	margin:0;
@@ -221,13 +226,13 @@ button{
     text-align: center;  
     border:0px;
     outline: none;
-    background: #b30101;
+    background: $bgColor;
     color:#fff;
 }
 button.butCur{
     border:1px solid #999!important;
     background:#662;
-    color:#b30101!important;
+    color:$bgColor!important;
 }
 a{
     text-decoration:none;
@@ -287,17 +292,17 @@ button{
     background-color: #fff;
     border-color: #dcdee2; */
     color: #fff;
-    background-color: #e0ad5d;
-    border-color: #c79649;
+    background-color: #bd6060;
+    border-color: #ae5757;
 }
 
 @font-face {
   font-family: 'iconfont';  /* project id 880675 */
-  src: url('//at.alicdn.com/t/font_880675_fvvq9many9t.eot');
-  src: url('//at.alicdn.com/t/font_880675_fvvq9many9t.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_880675_fvvq9many9t.woff') format('woff'),
-  url('//at.alicdn.com/t/font_880675_fvvq9many9t.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_880675_fvvq9many9t.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot');
+  src: url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.woff') format('woff'),
+  url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.svg#iconfont') format('svg');
 }
 .iconfont {
     font-family: "iconfont" !important;
@@ -320,6 +325,15 @@ button{
 .icon-next:before {
     content: "\e620";
 }
+.icon-zoushi:before {
+    content: "\e605";
+}
+.icon-menu:before {
+    content: "\e726";
+}
+.icon-message:before {
+    content: "\e60e";
+}
 .fico{
     display: block;
     font-size:0.2rem;
@@ -329,11 +343,13 @@ button{
 
 #app{
     height: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 .header{
     display: block;
     line-height: 0.56rem;
-    background:#b30101;
+    background:$bgColor;
     color:#fff;
     text-align: center;
     font-size: 0.2rem;
@@ -341,41 +357,11 @@ button{
     height: 8%;
 }
 
-.footer{
-    position: fixed;
-    bottom:0px;
-    left:0px;
-    display: block;
-    width: 100%;
-}
-.footer ul{
-    width: 100%;
-}
-.footer ul li{
-    float:left;
-    width:25%;
-}
-.footer ul li a{
-    color:#fff;
-    text-align: center;
-    background:#b30101;
-    color:#fff;
-    height: 0.5rem;
-    display: inherit;
-    padding-top: 0.01rem;
-}
-.footer ul li .router-link-exact-active{
-    background:#c79649!important;
-    color:#fff!important
-}
-.footer ul li .active , .footer ul li .isNews{
-      background:#c79649!important;
-    color:#fff!important  
-}
+
 .itit{
     display: block;
     line-height: 0.36rem;
-    border-left: 0.03rem solid #b30101;
+    border-left: 0.03rem solid $bgColor;
     padding-left:0.15rem;
     font-size: 0.18rem;
     text-align: left;
@@ -395,19 +381,12 @@ button{
     overflow: hidden;
     padding:0px 0.1rem
 }
-.nimg{
-    float: left;
-    width:1rem;
-}
-.newsCtn{
-    float: right;
-    width:2.45rem;
-}
 .vrw{
     position:relative;
     z-index: 0;
     height: 84%;
-    overflow-x: hidden
+    overflow-x: hidden;
+    width: 100%;
 }
 .child-view {  
   position: absolute;  

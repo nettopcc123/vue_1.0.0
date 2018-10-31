@@ -44,7 +44,8 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
+@import "scss/base.scss";
 .showalert{
     position:fixed;
     left:50%;

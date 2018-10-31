@@ -37,7 +37,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "scss/base.scss";
 #feedback{
   text-align: center;
 }
@@ -71,7 +72,7 @@ export default {
 .uitit{
     display: block;
     line-height: 0.36rem!important;
-    border-left: 0.03rem solid #b30101!important;
+    border-left: 0.03rem solid $bgColor!important;
     padding-left:0.15rem;
     font-size: 0.18rem;
     text-align: left;

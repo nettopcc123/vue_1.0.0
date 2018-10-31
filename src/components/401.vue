@@ -26,6 +26,7 @@ export default {
 }
 </script>
 <style>
+@import "scss/base.scss";
 .favors{
  display: block;
  text-align: center;

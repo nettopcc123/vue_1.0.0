@@ -56,7 +56,8 @@ export default {
 };
 </script>
  
-<style scoped>
+<style lang="scss">
+@import "scss/base.scss";
 .marquee {
   width: 100%;
 

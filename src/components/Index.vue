@@ -3,9 +3,6 @@
   <div class="hello">
        <!-- <button @click="isloadshow">+</button>
         <button @click="isloadhid">-</button> -->
-    <vue-star animate="yourAnimateCssClass" color="rgb(152, 138, 222)">
-      <!-- <img slot="icon" src="./yourImgPlace/yourImg.png" /> -->
-    </vue-star>
     <vue-banner></vue-banner>
     <vue-marquee></vue-marquee>
     <vue-newlists></vue-newlists>
@@ -13,8 +10,8 @@
 </template>
 <script>
 import axios from 'axios';
-import banner from './../components/banner';
-import newlists from './../components/newlists';
+import banner from './../components/banner02';
+import newlists from './../components/new_h01';
 import marquee from './../components/marquee';
 
 
@@ -49,3 +46,12 @@ export default {
 
 
 </script>
+
+<style lang="scss">
+@import "scss/base.scss";
+.vrw {
+    height: 88%!important;
+    width: 100%;
+}
+
+</style>

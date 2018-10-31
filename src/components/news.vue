@@ -44,7 +44,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "scss/base.scss";
 .nlist{
   display:block;
   text-align: center;
@@ -98,7 +99,7 @@ export default {
     background:#f9f9f9;
     overflow: hidden;
     line-height: 0.36rem;
-    color:#b30101;
+    color:$bgColor;
 }
 .smeu li{
     width:33%;
@@ -118,17 +119,18 @@ export default {
     font-size: 0.14rem;
 }
 .smeu .router-link-active{
-    color:#b30101;
-    border-bottom:0.01rem solid #b30101;
+    color:$bgColor;
+    border-bottom:0.01rem solid $bgColor;
 }
 .vrw {
     height: 96%!important;
+    width: 100%;
 }
 .itit{
-   background:#b30101;
+   background:$bgColor;
    color:#fff;
    line-height: 0.4rem;
-   border-left: 0.03rem solid #b30101;
+   border-left: 0.03rem solid $bgColor;
 }
 </style>
 

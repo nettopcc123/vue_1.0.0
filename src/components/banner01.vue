@@ -57,7 +57,8 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper';
  }
 }
 </script>
-<style scoped>
+<style lang="scss">
+@import "scss/base.scss";
 img {
  width: 100%;
  height: auto;
