@@ -14,6 +14,8 @@ import $ from 'jquery';
 import promise from 'es6-promise';
 promise.polyfill();
 
+import http from '@/utils/http';
+import api from '@/utils/api';
 
 //leancloud.cn
 var AV = require('leancloud-storage');
@@ -39,6 +41,8 @@ export const groupDetail = param => {
 
 Vue.prototype.axios = axios;
 Vue.use(VueAwesomeSwiper,Vuex,$);
+Vue.prototype.http = http;
+Vue.prototype.api = api;
 Vue.config.productionTip = false;
 
 new Vue({

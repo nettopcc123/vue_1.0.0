@@ -165,8 +165,10 @@ export default {
            a =a.replace(/\//g,'-');//替换2017/05/03 为    2017-05-03
            var nowdate= (new Date(a))/1000;//把当前日期变成时间戳
 
-            axios.get('static/new.json')  /// http://www.hd.me/data.php?callback=dosomething    static/news.json?num  static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
-            .then(res => {
+          //  axios.get('static/new.json')  /// http://www.hd.me/data.php?callback=dosomething    static/news.json?num  static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
+           var url=window.encodeURIComponent("http://f.apiplus.net/dlt.json");
+            axios.get('http://154.48.238.35:8080/Home/rd?rdurl=' + url) 
+           .then(res => {
               console.log(typeof(res));
               
               if(localStorage.getItem('newlist')){
