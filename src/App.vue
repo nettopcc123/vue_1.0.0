@@ -53,7 +53,6 @@ import header from '@/components/header';
 import footer from '@/components/footer';
 
 
-
 export default {
   name: 'App',
     data(){  
@@ -81,7 +80,6 @@ export default {
         }else{
             this.isHeard = true;
         }
-
         if(to.path == '/newsMore' || to.path == '/newsMore1' || to.path == '/newlists1' || to.path == '/newlists2' || to.path == '/newlists3'){ //新闻中心
             this.isNews = true;
             this.isBanner = false;
@@ -92,7 +90,6 @@ export default {
         if(to.path != from.path){ //滚动条置顶
            // document.getElementById('vrw').scrollTop = 0;
         }
-        
     },
 　 },
    components:{
@@ -110,18 +107,18 @@ export default {
     }
   },
   methods:{
-          isalertshow() {
-            this.$store.commit('isalertshow');
-          },
-          isalerthid() {
-            this.$store.commit('isalerthid');
-          },
-          isloadshow() {
-            this.$store.commit('isloadshow');
-          },
-          isloadhid() {
-            this.$store.commit('isloadhid');
-          },
+    isalertshow() {
+       this.$store.commit('isalertshow');
+    },
+    isalerthid() {
+       this.$store.commit('isalerthid');
+    },
+    isloadshow() {
+        this.$store.commit('isloadshow');
+    },
+    isloadhid() {
+        this.$store.commit('isloadhid');
+    },
   }
 }
 
