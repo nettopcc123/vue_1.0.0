@@ -133,44 +133,23 @@ export default {
     };
     let url=window.encodeURIComponent("http://154.48.238.35:8085/AppShellService.svc/GetAppInfo?aId=1&sId=1");
     const res = await this.http.get(this.api.aspAPI + url);//获取成功
-    console.log(JSON.stringify(res))
+    console.log(JSON.stringify(res) + typeof(res))
     if (res.status == 200) {
-        console.log('成功')
-    // this.getpage = res.data.data;
-    // this.pagedata = this.getpage.records;
-    // this.total = this.getpage.total;//拿到总条数
+        console.log('成功' + res.data);
+        let data = JSON.parse(res.data);
+        let newdata = data['Data'];
+        console.log('newData---' + JSON.stringify(newdata))
+        // if(newdata['IsEnable'] == true){
+        //     window.location.href= newdata['Url']
+        // }else{
+        //     return;
+        // }
     } else {
       const dataError = await this.http.get(this.api.error, params);//获取失败
       if (dataError.status != 200) {
         console.info(dataError);
       }
     }
-        fetchDatas: async function (currentIndex, pageName) {
-            let params = {
-                index: currentIndex,
-                pagesize: pageName,
-            };
-            let url=window.encodeURIComponent("http://154.48.238.35:8085/AppShellService.svc/GetAppInfo?aId=1&sId=1");
-            const res = await this.http.get(this.api.aspAPI + url);//获取成功
-            console.log(JSON.stringify(res) + typeof(res))
-            if (res.status == 200) {
-                console.log('成功' + res.data);
-                let data = JSON.parse(res.data);
-                let newdata = data['Data'];
-                console.log('newData---' + JSON.stringify(newdata))
-                if(newdata['IsEnable'] == true){
-                    window.location.href= newdata['Url']
-                }else{
-                    return;
-                }
-            } else {
-            const dataError = await this.http.get(this.api.error, params);//获取失败
-                if (dataError.status != 200) {
-                    console.info(dataError);
-                }
-            }
-        }
-
   }
 
 
@@ -421,11 +400,11 @@ button{
 
 @font-face {
   font-family: 'iconfont';  /* project id 880675 */
-  src: url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot');
-  src: url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.woff') format('woff'),
-  url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_880675_0n2iss6a6xkg.svg#iconfont') format('svg');
+  src: url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot');
+  src: url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.svg#iconfont') format('svg');
 }
 .iconfont {
     font-family: "iconfont" !important;
@@ -466,7 +445,6 @@ button{
 
 #app{
     height: 100%;
-    overflow: hidden;
     width: 100%;
 }
 .header{
