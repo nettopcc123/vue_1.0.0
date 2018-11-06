@@ -7,11 +7,10 @@
 </template>
 
 <script>
-import banner from './../components/banner';
     export default {
         data() {
             return {
-                bdTokenUrl: 'http://m.ssq.icaile.com/' //https://m.sporttery.cn/app/zf/fb/livelist.html  https://m.sporttery.cn/app/zf/fb/livelist.html
+                bdTokenUrl: 'http://154.48.238.35:8083/hongbao/hongbao05.html' //https://m.sporttery.cn/app/zf/fb/livelist.html  https://m.sporttery.cn/app/zf/fb/livelist.html
             }
         },
         // created() {
@@ -29,22 +28,7 @@ import banner from './../components/banner';
             const deviceHeight = document.documentElement.clientHeight;
             oIframe.style.width =  '100%'; //数字是页面布局宽度差值
             oIframe.style.height = '750px'; //数字是页面布局高度差
-        },
-  components: {
-    'vue-banner':banner
-  },
-    //     methods: {
-    //         /**
-    //          * 获取-外部接口信息
-    //          */
-    //         getUrl() {
-    //             let that = this
-    //             let bdUrl = {queryurl: this.$paths.bdpath+'/locate'};
-    //             this.$api.getBdToken(bdUrl,function(res) {
-    //                 that.bdTokenUrl = res.data.data;
-    //             })
-    //         },
-    //    }
+        }
     }
 </script>
 

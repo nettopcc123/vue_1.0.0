@@ -1,13 +1,19 @@
 <template>
 
   <div class="swiper-container">
-    <div class="swiper-wrapper"></div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" :style="{backgroundImage: 'url(' + require('../assets/images/1.jpg') + ')' }"></div>
+      <div class="swiper-slide" :style="{backgroundImage: 'url(' + require('../assets/images/1.jpg') + ')' }"></div>
+      <div class="swiper-slide" :style="{backgroundImage: 'url(' + require('../assets/images/1.jpg') + ')' }"></div>
+      <div class="swiper-slide" :style="{backgroundImage: 'url(' + require('../assets/images/1.jpg') + ')' }"></div>
+    </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination swiper-pagination-white"></div>
     <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
   </div>
+
 </template>
 
 <script>
@@ -16,83 +22,44 @@ import 'swiper/dist/css/swiper.min.css';
 export default {
    mounted:function(){
     this.$nextTick(function(){
-        var swiper03 = new swiper('.swiper-container', {
-            slidesPerView: 3,
-            centeredSlides: true,
+          var swiper = new Swiper('.swiper-container', {
             spaceBetween: 30,
+            effect: 'fade',
             pagination: {
-                el: '.swiper-pagination',
-                type: 'fraction',
+              el: '.swiper-pagination',
+              clickable: true,
             },
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
             },
-            virtual: {
-                slides: (function () {
-                var slides = [];
-                for (var i = 0; i < 600; i += 1) {
-                    slides.push('Slide ' + (i + 1));
-                }
-                return slides;
-                }()),
-            },
-            });
-            document.querySelector('.slide-1').addEventListener('click', function (e) {
-            e.preventDefault();
-            swiper.slideTo(0, 0);
-            });
-            document.querySelector('.slide-250').addEventListener('click', function (e) {
-            e.preventDefault();
-            swiper.slideTo(249, 0);
-            });
-            document.querySelector('.slide-500').addEventListener('click', function (e) {
-            e.preventDefault();
-            swiper.slideTo(499, 0);
-            });
-
+          })
     })
   }
 }
 </script>
+
+
 <style lang="scss">
 @import "scss/base.scss";
- .swiper-container {
+     html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
       width: 100%;
-      height: 300px;
-      margin: 20px auto;
+      height: 100%;
     }
     .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-    .append-buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .append-buttons a {
-      display: inline-block;
-      border: 1px solid #007aff;
-      color: #007aff;
-      text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin: 0 10px;
-      font-size: 13px;
+      background-position: center;
+      background-size: cover;
     }
 </style>

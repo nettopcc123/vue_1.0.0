@@ -31,7 +31,7 @@ export default {
   },
   methods: {
         newVue:function(){
-            var url=window.encodeURIComponent("http://154.48.238.35:8081/api/rd?rdurl=http://f.apiplus.net/dlt.json");
+            var url=window.encodeURIComponent("http://154.48.238.35154.48.238.35:8081/api/rd?rdurl=http://f.apiplus.net/dlt.json");
             axios.get('https://route.showapi.com/1677-1?showapi_appid=78821&showapi_timestamp=20181030164116&showapi_sign=f600a8af9e1a82448a8f06fbe0a8caaa')  //http://10.20.20.182:8083/api/rd   http://misc.opencai.net/consts/lotts.json   /static/news.json
             .then(res => {
                 console.log(res.data);

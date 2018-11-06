@@ -14,6 +14,9 @@ import $ from 'jquery';
 import promise from 'es6-promise';
 promise.polyfill();
 
+import http from '@/utils/http';
+import api from '@/utils/api';
+
 
 //leancloud.cn
 var AV = require('leancloud-storage');
@@ -38,6 +41,8 @@ export const groupDetail = param => {
 
 
 Vue.prototype.axios = axios;
+Vue.prototype.http = http;
+Vue.prototype.api = api;
 Vue.use(VueAwesomeSwiper,Vuex,$);
 Vue.config.productionTip = false;
 
@@ -51,6 +56,47 @@ new Vue({
   template: '<App/>'
 })
 
+//获取当前时间
+Vue.prototype.getNowFormatDate = function() {
+    var date = new Date();
+    var getWeek = date.getDay();
+    var week = '  星期';
+    switch(getWeek){
+        case 0:
+            week += '日';
+            break;
+        case 1:
+            week += '一';
+            break;
+        case 2:
+            week += '二';
+            break;
+        case 3:
+            week += '三';
+            break;
+        case 4:
+            week += '四';
+            break;
+        case 5:
+            week += '五';
+            break;
+        case 6:
+            week += '六';
+            break;
+    };
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate + week;
+    return currentdate;
+};
 
 
 Vue.use(Toast, {

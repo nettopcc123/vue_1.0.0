@@ -73,7 +73,6 @@ import axios from 'axios';
 import banner from './../components/banner';
 import newlists from './../components/newlists';
 import { setTimeout } from 'timers';
-import banner03 from './../components/banner03';
 import $ from 'jquery';
 export default {
   name: 'user',

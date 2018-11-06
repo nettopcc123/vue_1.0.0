@@ -33,9 +33,6 @@ const marquee = r => require.ensure([],() => r(require('@/components/marquee')),
 
 
 Vue.use(Router)
-
-
-
 export default new Router({
   routes: [
     {

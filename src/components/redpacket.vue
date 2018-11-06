@@ -79,7 +79,7 @@ export default {
     width: 48px;
     height: 69px;
     display: block;
-    background: url('/hongbao.png') no-repeat;
+    background: url('/hongbao.jpg') no-repeat;
   }
   li {
     position: absolute;
