@@ -47,11 +47,11 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import loading from '@/components/loading';
 import alert from '@/components/alert';
 import header from '@/components/header';
 import footer from '@/components/footer';
-
 
 
 export default {
@@ -81,7 +81,6 @@ export default {
         }else{
             this.isHeard = true;
         }
-
         if(to.path == '/newsMore' || to.path == '/newsMore1' || to.path == '/newlists1' || to.path == '/newlists2' || to.path == '/newlists3'){ //新闻中心
             this.isNews = true;
             this.isBanner = false;
@@ -92,7 +91,6 @@ export default {
         if(to.path != from.path){ //滚动条置顶
            // document.getElementById('vrw').scrollTop = 0;
         }
-        
     },
 　 },
    components:{
@@ -101,6 +99,11 @@ export default {
       'vue-header':header,
       'vue-footer':footer
    },
+  mounted:function(){
+      this.$nextTick(() => {//在下次 DOM 更新循环结束之后执行延迟回调
+         this.fetchDatas(1,3);
+      })
+  },
   computed:{
     isload(){
         return this.$store.state.isload;
@@ -110,18 +113,38 @@ export default {
     }
   },
   methods:{
-          isalertshow() {
-            this.$store.commit('isalertshow');
-          },
-          isalerthid() {
-            this.$store.commit('isalerthid');
-          },
-          isloadshow() {
-            this.$store.commit('isloadshow');
-          },
-          isloadhid() {
-            this.$store.commit('isloadhid');
-          },
+    isalertshow() {
+       this.$store.commit('isalertshow');
+    },
+    isalerthid() {
+       this.$store.commit('isalerthid');
+    },
+    isloadshow() {
+        this.$store.commit('isloadshow');
+    },
+    isloadhid() {
+        this.$store.commit('isloadhid');
+    },
+
+  fetchDatas: async function (currentIndex, pageName) {
+    let params = {
+      index: currentIndex,
+      pagesize: pageName,
+    };
+    let url=window.encodeURIComponent("http://154.48.238.35:8085/AppShellService.svc/GetAppInfo?aId=1&sId=1");
+    const res = await this.http.get(this.api.aspAPI + url);//获取成功
+    console.log(JSON.stringify(res))
+    if (res.status == 200) {
+        console.log('成功')
+    // this.getpage = res.data.data;
+    // this.pagedata = this.getpage.records;
+    // this.total = this.getpage.total;//拿到总条数
+    } else {
+      const dataError = await this.http.get(this.api.error, params);//获取失败
+      if (dataError.status != 200) {
+        console.info(dataError);
+      }
+    }
         fetchDatas: async function (currentIndex, pageName) {
             let params = {
                 index: currentIndex,
@@ -147,6 +170,80 @@ export default {
                 }
             }
         }
+
+  }
+
+
+
+
+
+
+    // fetchDatas(currentIndex, pageName){
+    //   //console.log(currentIndex + '---' +pageName);
+    //     let params = {
+    //         aId: 1,
+    //         sId: 4,
+    //     };
+    //     let url=window.encodeURIComponent("http://154.48.238.35:8085/AppShellService.svc/GetAppInfo?aId=1&sId=1");
+    //     const res = this.http.get('http://154.48.238.35:8080/Home/rd?rdurl=' + url);//获取成功
+    //     console.log(JSON.stringify(this.http.get('http://154.48.238.35:8080/Home/rd?rdurl=' + url)) + 'ccccc');
+    //          //JSON.stringify(this.state)
+    //     // if (res.status == true) {
+    //     //     console.log('有没');
+    //     //     this.getpage = res.data.data;
+    //     //     this.pagedata = this.getpage.records;
+    //     //     this.total = this.getpage.total;//拿到总条数
+    //     // } else {
+    //     //     console.log('去了没');
+    //     //     const dataError = this.http.get('http://154.48.238.35:8080/Home/rd?rdurl=' + url);//获取失败
+    //     //     if (dataError.status != 200) {
+    //     //       //console.log(dataError);
+    //     //     }
+    //     // }
+    // },
+    // getConfig(){
+    //       console.log('没有了');
+    //     // 添加响应拦截器
+    //       axios.interceptors.request.use(config => {  
+    //       this.isloadshow();      
+    //          console.log('1')
+    //         return config;
+    //       }, function (error) {
+    //         // 对请求错误做些什么
+    //         console.log('2');
+    //         return Promise.reject(error);
+    //       });
+
+    //     // 添加响应拦截器
+    //     axios.interceptors.response.use(response => {
+    //         // 对响应数据做点什么
+    //         console.log('a3')
+    //         this.isloadhid();  
+    //        // this.$store.commit('isloadhid');
+    //         return response;
+    //       }, function (error) {
+    //         console.log('4')
+    //         // 对响应错误做点什么
+    //         return Promise.reject(error);
+    //     });
+    //     var url=window.encodeURIComponent("http://154.48.238.35:8085/AppShellService.svc/GetAppInfo?aId=100&sId=19");
+    //      axios.get('http://154.48.238.35:8080/Home/rd?rdurl=' + url)  /// http://www.hd.me/data.php?callback=dosomething    static/news.json?num  static/news.json  http://misc.opencai.net/consts/lotts.json   /static/news.json
+    //         .then(res => {
+    //           console.log(typeof(res) + '---------------')
+    //           console.log(res.Status)
+    //           if( num >= 3){
+    //             this.tips = '加载完成';
+    //             return;
+    //           }
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             this.REQUIRE = false;
+    //     });
+    // }
+
+
+
 
   }
 }

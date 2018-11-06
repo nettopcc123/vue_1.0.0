@@ -44,6 +44,8 @@ Vue.prototype.axios = axios;
 Vue.prototype.http = http;
 Vue.prototype.api = api;
 Vue.use(VueAwesomeSwiper,Vuex,$);
+Vue.prototype.http = http;
+Vue.prototype.api = api;
 Vue.config.productionTip = false;
 
 new Vue({
