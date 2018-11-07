@@ -32,6 +32,8 @@ const htmlViewSample = r => require.ensure([],() => r(require('@/components/html
 const marquee = r => require.ensure([],() => r(require('@/components/marquee')), 'marquee');
 const framePict = r => require.ensure([],() => r(require('@/components/framePict')), 'framePict');
 const frameNew = r => require.ensure([],() => r(require('@/components/frameNew')), 'frameNew');
+const register = r => require.ensure([],() => r(require('@/components/register')), 'register');
+const login = r => require.ensure([],() => r(require('@/components/login')), 'login');
 
 
 Vue.use(Router)
@@ -51,6 +53,16 @@ export default new Router({
       path: '/framePict',
       name: 'framePict',
       component: framePict
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register
     },
     {
       path: '/frameNew',

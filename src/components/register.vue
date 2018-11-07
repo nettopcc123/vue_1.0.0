@@ -1,12 +1,19 @@
 <template>
 <div id="feedback">
-<h2 class="uitit_a">帐号登入</h2>
+<h2 class="uitit_a">帐号注册</h2>
 <div class="conttext">
     <div class="ly_box">
         <p class="footbk_p"><strong class="footfk">用户名：</strong></p>
-        <p><input type="text" class="inputtext" name="msp1" id="msp1" value="" alt="" v-model="msp1"></p>
+        <p><input type="text" class="inputtext" name="msr1" id="msr1" value="" alt="" v-model="msr1"></p>
         <p class="footbk_p"><strong class="footfk">登入密码：</strong></p>
-        <p><input type="text" class="inputtext" name="msp2" id="msp2" value="" alt="" v-model="msp2"></p>
+        <p><input type="password" class="inputtext" name="msr2" id="msr2" value="" alt="" v-model="msr2"></p>
+        <p class="footbk_p"><strong class="footfk">邮箱地址：</strong></p>
+        <p><input type="email" class="inputtext" name="msr3" id="msr3" value="" alt="" v-model="msr3"></p>
+        <p class="footbk_p"><strong class="footfk">联系电话：</strong></p>
+        <p><input type="number" class="inputtext" name="msr4" id="msr4" value="" alt="" v-model="msr4"></p>
+        <p class="footbk_p"><strong class="footfk">您的邮箱或者微博：</strong></p>
+        <p><input type="text" class="inputtext" name="msr5" id="msr5" value="" alt="" v-model="msr5"></p>
+           <input type="hidden" name="needcheck[]" value="msr3 您的邮箱或者微博：">
     </div>
     </div>
   <button class="fbut" @click="isloadshow()">提交</button>
@@ -22,36 +29,46 @@ export default {
     return{
       Surplus:140,
       introduct:'',
-      msp1:'',
-      msp2:'',
+      msr1:'',
+      msr2:'',
+      msr3:'',
+      msr4:'',
+      msr5:''
     }
   },
   methods:{
     descArea(){
-      var textVal = this.introduct.length;
+      let textVal = this.introduct.length;
       this.Surplus = 140 - textVal;
     },
     isloadshow() {
       this.$store.commit('isloadshow');
-      let u = localStorage.getItem('u');
-      let p = localStorage.getItem('p');
-      console.log(this.msp1 + '成功' + this.msp2 + ' uuuuu ' + u + ' ppp ' + p)
       setTimeout(() => {
-        if(this.msp1 == u && this.msp2 == p){
-            this.$router.push({path:'/'});
-            this.isloadhidS();
+        this.isloadhid();
+        localStorage.setItem('u',this.msr1);
+        localStorage.setItem('p',this.msr2);
+        if (!window.indexedDB) {
+            console.log("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.")
         }else{
-            this.isloadhidF();
+            console.log("indexedDB OK");
+            let request = window.indexedDB.open("MyTestDatabase"); //打开数据库
+            let db;
+            request.onsuccess = function (event) {
+               db = request.result;
+               console.log('数据库打开成功');
+            };
+
+            request.onerror = function (event) {
+              console.log('数据库打开报错');
+            }
+
         }
+        this.$router.push({path:'/login'});
       },2000);
     },
-    isloadhidF() {
+    isloadhid() {
       this.$store.commit('isloadhid');
-      this.$toast.center('登入失败请重新登入');
-    },
-    isloadhidS() {
-      this.$store.commit('isloadhid');
-      this.$toast.center('登入成功');
+      this.$toast.center('提交成功');
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
 <div id="feedback">
   <h2 class="uitit">意见反馈</h2>
-  <textarea v-bind:maxlength="140" @input="descArea" v-model="introduct" name="abstract" id="abstract" placeholder="您的意见，会让我们更优秀。"class="ftext"></textarea>
+  <textarea v-bind:maxlength="140" @input="descArea" v-model="introduct" name="abstract" id="abstract" placeholder="您的意见，会让我们更优秀。" class="ftext"></textarea>
   <span class="num-desc">您还可以输入 {{Surplus}} 个字符 / 共 140 个字符</span>
   <button class="fbut" @click="isloadshow()">提交</button>
  </div> 

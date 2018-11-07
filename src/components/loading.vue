@@ -22,8 +22,8 @@
     left:50%;
     top:50%;
     z-index: 100;
-    height:0.5rem;
-    width:0.5rem;
+    height:0.6rem;
+    width:0.6rem;
     margin-left:-0.25rem;
     margin-top:-0.25rem;
     background:#fff;

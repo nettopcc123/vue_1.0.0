@@ -1,9 +1,6 @@
 <template>
 <div id="feedback">
   <h2 class="uitit_a">意见反馈</h2>
-
-
-
 <div class="conttext">
         <div class="bt">
         		<strong>请您留言</strong>
@@ -21,7 +18,7 @@
             <textarea v-bind:maxlength="140" @input="descArea" v-model="introduct" name="abstract" id="abstract" placeholder="您的意见，会让我们更优秀。" class="ftext"></textarea>
              <span class="num-desc">您还可以输入 {{Surplus}} 个字符 / 共 140 个字符</span>
         </p>
-            <input type="hidden" name="needcheck[]" value="msg1 反馈内容：">
+      <input type="hidden" name="needcheck[]" value="msg1 反馈内容：">
       <p class="footbk_p"><strong class="footfk">联系电话：</strong></p>
 			<p><input type="text" class="inputtext" name="msg2" id="msg2" value="" alt=""></p>
             <input type="hidden" name="needcheck[]" value="msg2 联系电话：">

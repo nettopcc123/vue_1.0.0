@@ -64,10 +64,7 @@ export default {
     }
   }
 }
-
-
 </script>
-
 <style lang="scss">
 @import "scss/base.scss";
 .vrw {

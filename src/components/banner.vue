@@ -2,13 +2,13 @@
 <div id="container">
  <swiper :options="swiperOption" ref="mySwiper">
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/hb_001.jpg?1111')" alt="">
+   <img :src="require('./../components/img/hb_004.jpg?1111')" alt="">
   </swiper-slide>
   <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/hb_002.jpg?1111')" alt="">
+   <img :src="require('./../components/img/hb_005.jpg?1111')" alt="">
   </swiper-slide>
     <swiper-slide class="swiper-slide games">
-   <img :src="require('./../components/img/hb_003.jpg?1111')" alt="">
+   <img :src="require('./../components/img/hb_006.jpg?1111')" alt="">
   </swiper-slide>
   <div class="swiper-pagination" slot="pagination"></div>
   <!-- <div class="swiper-button-prev" slot="button-prev"></div>

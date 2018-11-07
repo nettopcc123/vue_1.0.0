@@ -91,7 +91,7 @@ export default {
         if(to.path != from.path){ //滚动条置顶 //路由跳转方法
            // document.getElementById('vrw').scrollTop = 0;
            this.ismenuhid();
-        }
+        }        
     },
 　 },
    components:{
@@ -407,11 +407,11 @@ button{
 
 @font-face {
   font-family: 'iconfont';  /* project id 880675 */
-  src: url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot');
-  src: url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.eot?#iefix') format('embedded-opentype'),
-  url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.woff') format('woff'),
-  url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.ttf') format('truetype'),
-  url('http://at.alicdn.com/t/font_880675_0n2iss6a6xkg.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.eot');
+  src: url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.woff') format('woff'),
+  url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.svg#iconfont') format('svg');
 }
 .iconfont {
     font-family: "iconfont" !important;
@@ -442,6 +442,18 @@ button{
 }
 .icon-message:before {
     content: "\e60e";
+}
+.icon-ml01:before {
+    content: "\e601";
+}
+.icon-ml02:before {
+    content: "\e61b";
+}
+.icon-ml03:before {
+    content: "\e61b";
+}
+.icon-ml04:before {
+    content: "\e61b";
 }
 .fico{
     display: block;
@@ -513,8 +525,6 @@ button{
   -webkit-transform: translate(-30px, 0);  
   transform: translate(-30px, 0);  
 }
-
-
 .bg{
     background:rgba(0,0,0,0.4);
     left:0;top:0;

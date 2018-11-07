@@ -7,10 +7,10 @@
             <img :src="require('./../components/img/uid.png?1111')" alt="">
         </div>
         <ul class="menuul">
-            <li><router-link :to="{ name: 'disclaimer'}">竞赛规则</router-link></li>
-            <li><router-link :to="{ name: 'feedback'}"> 意见反馈</router-link></li>
-            <li>帮助中心</li>
-            <li>绑定手机</li>
+            <li><i class="iconfont icon-ml02 mlico"></i><router-link :to="{ name: 'disclaimer'}">竞赛规则</router-link></li>
+            <li><i class="iconfont icon-ml01 mlico"></i><router-link :to="{ name: 'feedback'}"> 意见反馈</router-link></li>
+            <li><i class="iconfont icon-user mlico"></i><router-link :to="{ name: 'login'}"> 我要登入</router-link></li>
+            <li><i class="iconfont icon-ml04 mlico"></i><router-link :to="{ name: 'register'}"> 我要注册</router-link></li>
         </ul>
     </div>
     <div class="bgh" @click="ismenuhid" style="position:restive" v-if="ismenu"></div>
@@ -63,6 +63,11 @@ export default {
     float:right;
     padding-left:0.05rem;
 }
+.mlico{
+    font-size: 0.2rem;
+    float:left;
+    padding-left:0.4rem;
+}
 .mlin{
     font-size: 0.2rem;
     float:left;
@@ -112,10 +117,13 @@ export default {
     margin-top: 15px;
 }
 .menuul li{
-    color:#000;
+    color:#b14646;
     padding:0 0.15rem;
     text-align: center;
     border-bottom:1px dotted #bdbdbd;
     font-size: 0.14rem;
+}
+.menuul li a{
+    color:#b14646;
 }
 </style>
