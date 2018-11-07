@@ -10,7 +10,7 @@
     export default {
         data() {
             return {
-                bdTokenUrl: 'http://sports.qq.com/kbsweb/kbsshare/gamelist.htm?#nav-laliga' //https://m.sporttery.cn/app/zf/fb/livelist.html  https://m.sporttery.cn/app/zf/fb/livelist.html
+                bdTokenUrl: 'https://m.sohu.com/p/759691/?wscrid=92625_2' //https://m.sporttery.cn/app/zf/fb/livelist.html  https://m.sporttery.cn/app/zf/fb/livelist.html
             }
         },
         // created() {

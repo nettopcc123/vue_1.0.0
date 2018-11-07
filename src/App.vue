@@ -51,7 +51,7 @@ import axios from 'axios';
 import loading from '@/components/loading';
 import alert from '@/components/alert';
 import header from '@/components/header';
-import footer from '@/components/footer';
+import footer from '@/components/footer02';
 
 
 export default {
@@ -88,8 +88,9 @@ export default {
             this.isNews = false;
             this.isBanner = true;
         }
-        if(to.path != from.path){ //滚动条置顶
+        if(to.path != from.path){ //滚动条置顶 //路由跳转方法
            // document.getElementById('vrw').scrollTop = 0;
+           this.ismenuhid();
         }
     },
 　 },
@@ -110,6 +111,9 @@ export default {
     },
     isalert(){
         return this.$store.state.isalert;
+    },
+    ismenu(){
+        return this.$store.state.ismenu;
     }
   },
   methods:{
@@ -125,7 +129,9 @@ export default {
     isloadhid() {
         this.$store.commit('isloadhid');
     },
-
+    ismenuhid() {
+        this.$store.commit('ismenuhid');
+    },
   fetchDatas: async function (currentIndex, pageName) {
     let params = {
       index: currentIndex,
@@ -277,7 +283,7 @@ html {
 }
 body{
     height:100%;
-    background:#e7e7e7;
+    background:#fff;
     overflow-x: hidden;
 }
 
@@ -330,6 +336,7 @@ button{
     outline: none;
     background: $bgColor;
     color:#fff;
+    
 }
 button.butCur{
     border:1px solid #999!important;
@@ -394,8 +401,8 @@ button{
     background-color: #fff;
     border-color: #dcdee2; */
     color: #fff;
-    background-color: #bd6060;
-    border-color: #ae5757;
+    background-color: #75b1e4;
+    border-color: #7abff9;
 }
 
 @font-face {

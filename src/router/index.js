@@ -25,11 +25,13 @@ const lotts = r => require.ensure([],() => r(require('@/components/lotts')), 'lo
 const lottsmore = r => require.ensure([],() => r(require('@/components/lottsmore')), 'lottsmore');
 const user = r => require.ensure([],() => r(require('@/components/user')), 'user');
 const feedback = r => require.ensure([],() => r(require('@/components/feedback01')), 'feedback');
-const disclaimer = r => require.ensure([],() => r(require('@/components/disclaimer01')), 'disclaimer');
+const disclaimer = r => require.ensure([],() => r(require('@/components/disclaimer02')), 'disclaimer');
 const message = r => require.ensure([],() => r(require('@/components/message')), 'message');
 const favorites = r => require.ensure([],() => r(require('@/components/favorites')), 'favorites');
 const htmlViewSample = r => require.ensure([],() => r(require('@/components/htmlViewSample')), 'htmlViewSample');
 const marquee = r => require.ensure([],() => r(require('@/components/marquee')), 'marquee');
+const framePict = r => require.ensure([],() => r(require('@/components/framePict')), 'framePict');
+const frameNew = r => require.ensure([],() => r(require('@/components/frameNew')), 'frameNew');
 
 
 Vue.use(Router)
@@ -44,6 +46,16 @@ export default new Router({
       path: '/newlists',
       name: 'newlists',
       component: newlists
+    },
+    {
+      path: '/framePict',
+      name: 'framePict',
+      component: framePict
+    },
+    {
+      path: '/frameNew',
+      name: 'frameNew',
+      component: frameNew
     },
     {
       path: '/news',

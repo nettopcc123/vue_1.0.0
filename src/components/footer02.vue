@@ -8,17 +8,17 @@
              </li>
             <li >
                 <router-link :to="{ name: 'htmlViewSample'}">
-                   走势
+                   赛程
                 </router-link>
             </li>
             <li>
-                <router-link :to="{ name: 'feedback'}" v-bind:class="{ active: isNews }">
-                   反馈
+                <router-link :to="{ name: 'frameNew'}" v-bind:class="{ active: isNews }">
+                   新闻
                 </router-link>
             </li>
             <li>
                 <router-link :to="{ name: 'disclaimer'}"  v-bind:class="{ active: isActive }">
-                   声明
+                   规则
                 </router-link>
             </li>
         </ul>
@@ -87,17 +87,18 @@ export default {
 }
 .footer ul li a{
     text-align: center;
-    background:#f0f0f0;
-    color:#313131;
+    background: url('img/footbg.png');
+    color:#fff;
     height: 0.4rem;
     display: inherit;
     padding-top: 0.01rem;
     font-size: 0.2rem;
     line-height: 0.4rem;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid #3c89cb;
 }
 .footer ul li .router-link-exact-active{
     border-bottom:3px solid #1461a3;
+    background: url('img/footbg_h.png');
 }
 
 </style>

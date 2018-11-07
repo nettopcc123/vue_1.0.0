@@ -1,14 +1,14 @@
 <template>
 <div class="header">
-    <div class="fl"><i class="iconfont icon-zoushi zsm"></i><span class="menufont">彩彩红单王资讯</span></div>
+    <div class="fl"><i class="iconfont icon-zoushi zsm"></i><span class="menufont">NBA直播比分助手</span></div>
     <span class="menur" @click="ismenushow"><i class="iconfont icon-menu zsm mlin"></i></span>
     <div class="menuleft" style="position:restive" v-if="ismenu">
         <div class="uid">
             <img :src="require('./../components/img/uid.png?1111')" alt="">
         </div>
         <ul class="menuul">
-            <li>我的红包</li>
-            <li>关于我们</li>
+            <li><router-link :to="{ name: 'disclaimer'}">竞赛规则</router-link></li>
+            <li><router-link :to="{ name: 'feedback'}"> 意见反馈</router-link></li>
             <li>帮助中心</li>
             <li>绑定手机</li>
         </ul>
@@ -43,7 +43,8 @@ export default {
 <style lang="scss">
 @import "scss/base.scss";
 .header{
-    background: #1D1D1F;
+   // background: #1D1D1F;
+    background: url('img/footbg.png');
     display: block;
     line-height: 0.4rem;
     color:#fff;
@@ -67,7 +68,7 @@ export default {
     float:left;
     margin-right:0.08rem;
     width:0.5rem;
-    border-right:1px solid #000;
+    border-right:1px solid #2f6b9e;
     text-align: center;
 }
 .menufont{

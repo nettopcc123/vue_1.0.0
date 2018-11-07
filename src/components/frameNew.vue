@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="iftop">
+        <div class="iftop01">
         <iframe ref="iframe" id="bdIframe" :src="bdTokenUrl" frameborder="0" scrolling="no" width="100%" height="750px" ></iframe>
         </div>
     </div>
@@ -10,7 +10,7 @@
     export default {
         data() {
             return {
-                bdTokenUrl: 'http://sports.qq.com/kbsweb/kbsshare/gamelist.htm?#nav-laliga' //https://m.sporttery.cn/app/zf/fb/livelist.html  https://m.sporttery.cn/app/zf/fb/livelist.html
+                bdTokenUrl: 'https://m.sohu.com/z/football/8?spm=smwp.fb-wzzq-home.hsb.5.1541501673034TqUwgoy' //https://m.sporttery.cn/app/zf/fb/livelist.html  https://m.sporttery.cn/app/zf/fb/livelist.html
             }
         },
         // created() {
@@ -37,7 +37,7 @@
 .child-view{
     height:100%;
 }
-.iftop{
+.iftop01{
     height: 100%;
     margin-top:-40px;
     margin-bottom:60px;
