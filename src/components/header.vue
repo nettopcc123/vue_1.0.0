@@ -10,7 +10,7 @@
             <li><i class="iconfont icon-ml02 mlico"></i><router-link :to="{ name: 'disclaimer'}">竞赛规则</router-link></li>
             <li><i class="iconfont icon-ml01 mlico"></i><router-link :to="{ name: 'feedback'}"> 意见反馈</router-link></li>
             <li><i class="iconfont icon-user mlico"></i><router-link :to="{ name: 'login'}"> 我要登入</router-link></li>
-            <li><i class="iconfont icon-ml04 mlico"></i><router-link :to="{ name: 'register'}"> 我要注册</router-link></li>
+            <li><i class="iconfont icon-reg mlico"></i><router-link :to="{ name: 'register'}"> 我要注册</router-link></li>
         </ul>
     </div>
     <div class="bgh" @click="ismenuhid" style="position:restive" v-if="ismenu"></div>

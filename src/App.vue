@@ -407,11 +407,11 @@ button{
 
 @font-face {
   font-family: 'iconfont';  /* project id 880675 */
-  src: url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.eot');
-  src: url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.woff') format('woff'),
-  url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_880675_p48ol2jyzkl.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_880675_tzxh8imfxe9.eot');
+  src: url('//at.alicdn.com/t/font_880675_tzxh8imfxe9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_880675_tzxh8imfxe9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_880675_tzxh8imfxe9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_880675_tzxh8imfxe9.svg#iconfont') format('svg');
 }
 .iconfont {
     font-family: "iconfont" !important;
@@ -454,6 +454,9 @@ button{
 }
 .icon-ml04:before {
     content: "\e61b";
+}
+.icon-reg:before {
+    content: "\e606";
 }
 .fico{
     display: block;
